@@ -1,5 +1,7 @@
 <?php 
 include ('db.php');
+
+
 if (isset($_POST['save_task'])){
     $title = $_POST['title'];
     $description = $_POST['description'];
@@ -10,7 +12,9 @@ if (isset($_POST['save_task'])){
         die("Query failed");
     }
 
-    echo 'saved';
+    $_SESSION['message'] = 'Task Saved succesfully';
+    $_SESSION['message_type'] = 'success';
+    header("Location: index.php");
 }
 
 
